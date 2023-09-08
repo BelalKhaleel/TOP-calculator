@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.container {
+  background-color: aliceblue;
+  width: 20em;
+  height: 20em;
+  border-radius: 5px;
+  border: solid 1px darkgray;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+.screen {
+  width: 80%;
+  height: 20%;
+  background-color: white;
+  margin: 20px auto;
+  border: solid 1px darkgray;
+  border-radius: 5px;
+}
+
+.buttons {
+  height: 60%;
+  width: 80%;
+  margin: 20px auto;
+  padding: 5px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 5px;
+  row-gap: 5px;
+  
+}
+
+button {
+  /* border-radius: 50%; */
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.zero {
+  /* grid-column-start: 1;
+  grid-column-end: 3; */
+  grid-column: 1 / span 2;
+}
+
+.dot {
+  font-size: 1.4em;
+}
+
+.division, .minus {
+  font-size: 1.2em;
+}
+
+.division, .multiplication, .minus, .plus, .equal {
+  background-color: orange;
+  border: solid 1px ;
+}
+
+.ac, .plus-minus, .modulo {
+  color: white;
+  background-color: dimgray;
+  border: none;
+}
