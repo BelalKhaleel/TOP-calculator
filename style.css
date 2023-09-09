@@ -14,13 +14,10 @@ body {
 
 .container {
   background-color: aliceblue;
-  width: 20em;
-  height: 20em;
+  width: 26em;
+  height: 30em;
   border-radius: 5px;
   border: solid 1px darkgray;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 }
 
 .screen {
@@ -31,9 +28,19 @@ body {
   border: solid 1px darkgray;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
   padding: 5px;
+}
+
+.previous-number {
+  font-size: 1.2em;
+  color: lightslategray;
+}
+
+.current-number {
+  font-size: 2em;
 }
 
 .buttons {
@@ -47,11 +54,10 @@ body {
   grid-template-rows: repeat(5, 1fr);
   column-gap: 5px;
   row-gap: 5px;
-  
 }
 
 button {
-  /* border-radius: 50%; */
+  /* border-radius: 2px; */
   cursor: pointer;
   font-size: 1em;
 }
@@ -62,18 +68,20 @@ button {
   grid-column: 1 / span 2;
 }
 
-#dot {
+.decimal {
   font-size: 1.4em;
 }
 
-#division, #minus {
-  font-size: 1.2em;
+#division,
+#minus {
+  font-size: 1.5em;
 }
 
 .operator {
   background-color: orange;
   /* color: white; */
-  border: solid 1px ;
+  border: solid 1px;
+  font-size: 1.3em;
 }
 
 .operator:hover {
@@ -81,13 +89,25 @@ button {
   color: white;
 }
 
-#ac, #plus-minus, #modulo {
+.operator.clicked {
+  background-color: darkorange;
+  color: white;
+}
+
+.backspace {
+  font-size: 1.2em;
+}
+.clear,
+.backspace,
+.modulo {
   color: white;
   background-color: dimgray;
   border: none;
 }
 
-#ac:hover, #plus-minus:hover, #modulo:hover {
+.clear:hover,
+.backspace:hover,
+.modulo:hover {
   color: white;
   background-color: grey;
   border: none;

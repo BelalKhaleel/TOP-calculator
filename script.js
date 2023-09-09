@@ -1,96 +1,89 @@
-const add = function (a, b) {
-  return a + b;
-};
+let currentValue = "";
+let previousValue = "";
+let operator = "";
 
-const subtract = function (a, b) {
-  return a - b;
-};
+const currentScreen = document.querySelector(".current-number");
 
-const multiply = function (a, b) {
-  return a * b;
-};
+const previousScreen = document.querySelector(".previous-number");
 
-const divide = function (a, b) {
-  if (b == 0) return "Cannot divide by zero!";
-  return a / b;
-};
+const operators = document.querySelectorAll(".operator");
 
-const sum = function (arr) {
-  return arr.reduce((sum, current) => sum + current, 0);
-};
+const numbers = document.querySelectorAll(".operand");
 
-// const multiply = function (arr) {
-//   return arr.reduce((product, current) => product * current);
-// };
+const equal = document.querySelector(".equal");
+equal.addEventListener("click", () => {
+  calculate();
+  previousScreen.textContent = "";
+  currentScreen.textContent = previousValue;
+});
 
-const power = function (a, b) {
-  return a ** b;
-};
+const decimal = document.querySelector(".decimal");
+decimal.addEventListener("click", () => {
+  addDecimalPoint();
+});
 
-let num1;
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", () => {
+  currentValue = "";
+  previousValue = "";
+  operator = "";
+  currentScreen.textContent = currentValue;
+  previousScreen.textContent = previousValue;
+});
 
-let num2;
-
-let operator;
-
-function operate(num1, num2, operator) {
-  switch (operator) {
-    case "+":
-      return add(num1, num2);
-    case "-":
-      return subtract(num1, num2);
-    case "×":
-      return multiply(num1, num2);
-    case "÷":
-      return divide(num1, num2);
-    default:
-      return "Invalid operator!";
-  }
-}
-
-function addOperatorToScreen(operator) {
-  const screen = document.querySelector('.screen');
-
-  const span = document.createElement('span');
-  span.textContent = operator;
-  span.style.marginLeft = '5px';
-  span.style.marginRight = '5px';
-
-  screen.appendChild(span);
-   // Reset the current span when an operator is added
-   currentSpan = null;
-}
-
-function chooseOperator(selectedOperator) {
-  operator = selectedOperator;
-}
-
-const screen = document.querySelector('.screen');
-let currentSpan = null; // Initialize currentSpan as null to start
-
-function addNumberToScreen(num) {
-
-  if (!currentSpan) {
-    // Create a new span for the first digit
-    currentSpan = document.createElement('span');
-    screen.appendChild(currentSpan);
-  }
-  currentSpan.textContent += num; // Append subsequent digits
-}
-
-
-// function selectNumber(selectedNumber) {
-//   if (num1 == undefined) {
-//     num1 = selectedNumber;
-//     } else {
-//       num2 = selectedNumber;
-//     } 
-// }
-
-function clearScreen() {
-  const spans = document.querySelectorAll('span');
-
-  spans.forEach((span) => {
-    span.remove();
+numbers.forEach((number) =>
+  number.addEventListener("click", (e) => {
+    handleNumber(e.target.textContent);
+    currentScreen.textContent = currentValue;
   })
+);
+
+function handleNumber(num) {
+  if (currentValue.length <= 9) {
+    currentValue += num;
+  }
+}
+
+operators.forEach((op) =>
+  op.addEventListener("click", (e) => {
+    console.log(e.target.textContent);
+    handleOperator(e.target.textContent);
+    previousScreen.textContent = previousValue + " " + operator;
+    currentScreen.textContent = currentValue;
+  })
+);
+
+function handleOperator(op) {
+  operator = op;
+  previousValue = currentValue;
+  currentValue = "";
+}
+
+function calculate() {
+  previousValue = Number(previousValue);
+  currentValue = Number(currentValue);
+
+  if (operator == "+") {
+    previousValue += currentValue;
+  } else if (operator == "-") {
+    previousValue -= currentValue;
+  } else if (operator == "×") {
+    previousValue *= currentValue;
+  } else if (currentValue !== 0) {
+    previousValue /= currentValue;
+  }
+
+  previousValue = roundNumber(previousValue);
+  previousValue = previousValue.toString();
+  currentValue = previousValue.toString();
+}
+
+function roundNumber(num) {
+  return Math.round(num * 1000) / 1000;
+}
+
+function addDecimalPoint() {
+  if (!currentValue.includes(".")) {
+    currentValue += ".";
+  }
 }
