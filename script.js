@@ -48,19 +48,44 @@ function operate(num1, num2, operator) {
   }
 }
 
-function addDisplayToScreen(opera) {
+function addOperatorToScreen(operator) {
   const screen = document.querySelector('.screen');
 
-  const content = document.createElement('span');
-  content.textContent = opera;
+  const span = document.createElement('span');
+  span.textContent = operator;
+  span.style.marginLeft = '5px';
+  span.style.marginRight = '5px';
 
-  const spaceSpan = document.createElement('span');
-  spaceSpan.textContent = ' ';
-  spaceSpan.style.width = "5px";
-
-  screen.appendChild(content);
-  screen.appendChild(spaceSpan);
+  screen.appendChild(span);
+   // Reset the current span when an operator is added
+   currentSpan = null;
 }
+
+function chooseOperator(selectedOperator) {
+  operator = selectedOperator;
+}
+
+const screen = document.querySelector('.screen');
+let currentSpan = null; // Initialize currentSpan as null to start
+
+function addNumberToScreen(num) {
+
+  if (!currentSpan) {
+    // Create a new span for the first digit
+    currentSpan = document.createElement('span');
+    screen.appendChild(currentSpan);
+  }
+  currentSpan.textContent += num; // Append subsequent digits
+}
+
+
+// function selectNumber(selectedNumber) {
+//   if (num1 == undefined) {
+//     num1 = selectedNumber;
+//     } else {
+//       num2 = selectedNumber;
+//     } 
+// }
 
 function clearScreen() {
   const spans = document.querySelectorAll('span');

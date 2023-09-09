@@ -56,38 +56,38 @@ button {
   font-size: 1em;
 }
 
-.zero {
+#zero {
   /* grid-column-start: 1;
   grid-column-end: 3; */
   grid-column: 1 / span 2;
 }
 
-.dot {
+#dot {
   font-size: 1.4em;
 }
 
-.division, .minus {
+#division, #minus {
   font-size: 1.2em;
 }
 
-.division, .multiplication, .minus, .plus, .equal {
+.operator {
   background-color: orange;
   /* color: white; */
   border: solid 1px ;
 }
 
-.division:hover, .multiplication:hover, .minus:hover, .plus:hover, .equal:hover {
+.operator:hover {
   background-color: darkorange;
   color: white;
 }
 
-.ac, .plus-minus, .modulo {
+#ac, #plus-minus, #modulo {
   color: white;
   background-color: dimgray;
   border: none;
 }
 
-.ac:hover, .plus-minus:hover, .modulo:hover {
+#ac:hover, #plus-minus:hover, #modulo:hover {
   color: white;
   background-color: grey;
   border: none;

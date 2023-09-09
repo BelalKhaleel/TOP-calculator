@@ -12,25 +12,25 @@
     <div class="screen">
     </div>
     <div class="buttons">
-      <button onclick="clearScreen()" class="ac">AC</button>
-      <button class="plus-minus">+ / -</button>
-      <button onclick="addDisplayToScreen('%')" class="modulo">%</button>
-      <button onclick="addDisplayToScreen('÷')" class="division">÷</button>
-      <button onclick="addDisplayToScreen(7)" class="seven">7</button>
-      <button onclick="addDisplayToScreen(8)" class="eight">8</button>
-      <button onclick="addDisplayToScreen(9)" class="nine">9</button>
-      <button onclick="addDisplayToScreen('×')" class="multiplication">×</button>
-      <button onclick="addDisplayToScreen(4)" class="four">4</button>
-      <button onclick="addDisplayToScreen(5)" class="five">5</button>
-      <button onclick="addDisplayToScreen(6)" class="six">6</button>
-      <button onclick="addDisplayToScreen('-')" class="minus">-</button>
-      <button onclick="addDisplayToScreen(1)" class="one">1</button>
-      <button onclick="addDisplayToScreen(2)" class="two">2</button>
-      <button onclick="addDisplayToScreen(3)" class="three">3</button>
-      <button onclick="addDisplayToScreen('+')" class="plus">+</button>
-      <button onclick="addDisplayToScreen(0)" class="zero">0</button>
-      <button onclick="addDisplayToScreen('.')" class="dot">.</button>
-      <button onclick="addDisplayToScreen('=')" class="equal">=</button>
+      <button type="button" onclick="clearScreen()" id="ac">AC</button>
+      <button type="button" id="plus-minus">+ / -</button>
+      <button type="button" onclick="addOperatorToScreen('%')" id="modulo">%</button>
+      <button type="button" onclick="addOperatorToScreen('÷'); chooseOperator('÷');" class="operator" id="division" value="÷">÷</button>
+      <button type="button" onclick="addNumberToScreen(7); " class="operand" id="seven" value="7">7</button>
+      <button type="button" onclick="addNumberToScreen(8); " class="operand" id="eight" value="8">8</button>
+      <button type="button" onclick="addNumberToScreen(9); " class="operand" id="nine" value="9">9</button>
+      <button type="button" onclick="addOperatorToScreen('×'); chooseOperator('×');" class="operator" id="multiplication" value="×">×</button>
+      <button type="button" onclick="addNumberToScreen(4); " class="operand" id="four" value="4">4</button>
+      <button type="button" onclick="addNumberToScreen(5); " class="operand" id="five" value="5">5</button>
+      <button type="button" onclick="addNumberToScreen(6); " class="operand" id="six" value="6">6</button>
+      <button type="button" onclick="addOperatorToScreen('-'); chooseOperator('-');" class="operator" id="minus" value="-">-</button>
+      <button type="button" onclick="addNumberToScreen(1); " class="operand" id="one" value="1">1</button>
+      <button type="button" onclick="addNumberToScreen(2); " class="operand" id="two" value="2">2</button>
+      <button type="button" onclick="addNumberToScreen(3); " class="operand" id="three" value="3">3</button>
+      <button type="button" onclick="addOperatorToScreen('+'); chooseOperator('+');" class="operator" id="plus" value="+">+</button>
+      <button type="button" onclick="addNumberToScreen(0); " class="operand" id="zero" value="0">0</button>
+      <button type="button" onclick="addNumberToScreen('.'); " id="dot">.</button>
+      <button type="button" onclick="" class="operator" id="equal">=</button>
     </div>
   </div>
 </body>
