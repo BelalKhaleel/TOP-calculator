@@ -72,6 +72,7 @@ button {
 
 .division, .multiplication, .minus, .plus, .equal {
   background-color: orange;
+  /* color: white; */
   border: solid 1px ;
 }
 

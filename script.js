@@ -48,3 +48,24 @@ function operate(num1, num2, operator) {
   }
 }
 
+function addDisplayToScreen(opera) {
+  const screen = document.querySelector('.screen');
+
+  const content = document.createElement('span');
+  content.textContent = opera;
+
+  const spaceSpan = document.createElement('span');
+  spaceSpan.textContent = ' ';
+  spaceSpan.style.width = "5px";
+
+  screen.appendChild(content);
+  screen.appendChild(spaceSpan);
+}
+
+function clearScreen() {
+  const spans = document.querySelectorAll('span');
+
+  spans.forEach((span) => {
+    span.remove();
+  })
+}

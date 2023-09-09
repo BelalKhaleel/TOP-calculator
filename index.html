@@ -10,28 +10,27 @@
 <body>
   <div class="container">
     <div class="screen">
-      <span>1 + 2 = 3</span>
     </div>
     <div class="buttons">
-      <button class="ac">AC</button>
+      <button onclick="clearScreen()" class="ac">AC</button>
       <button class="plus-minus">+ / -</button>
-      <button class="modulo">%</button>
-      <button class="division">÷</button>
-      <button class="seven">7</button>
-      <button class="eight">8</button>
-      <button class="nine">9</button>
-      <button class="multiplication">×</button>
-      <button class="four">4</button>
-      <button class="five">5</button>
-      <button class="six">6</button>
-      <button class="minus">-</button>
-      <button class="one">1</button>
-      <button class="two">2</button>
-      <button class="three">3</button>
-      <button class="plus">+</button>
-      <button class="zero">0</button>
-      <button class="dot">.</button>
-      <button class="equal">=</button>
+      <button onclick="addDisplayToScreen('%')" class="modulo">%</button>
+      <button onclick="addDisplayToScreen('÷')" class="division">÷</button>
+      <button onclick="addDisplayToScreen(7)" class="seven">7</button>
+      <button onclick="addDisplayToScreen(8)" class="eight">8</button>
+      <button onclick="addDisplayToScreen(9)" class="nine">9</button>
+      <button onclick="addDisplayToScreen('×')" class="multiplication">×</button>
+      <button onclick="addDisplayToScreen(4)" class="four">4</button>
+      <button onclick="addDisplayToScreen(5)" class="five">5</button>
+      <button onclick="addDisplayToScreen(6)" class="six">6</button>
+      <button onclick="addDisplayToScreen('-')" class="minus">-</button>
+      <button onclick="addDisplayToScreen(1)" class="one">1</button>
+      <button onclick="addDisplayToScreen(2)" class="two">2</button>
+      <button onclick="addDisplayToScreen(3)" class="three">3</button>
+      <button onclick="addDisplayToScreen('+')" class="plus">+</button>
+      <button onclick="addDisplayToScreen(0)" class="zero">0</button>
+      <button onclick="addDisplayToScreen('.')" class="dot">.</button>
+      <button onclick="addDisplayToScreen('=')" class="equal">=</button>
     </div>
   </div>
 </body>
