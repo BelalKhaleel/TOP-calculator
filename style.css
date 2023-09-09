@@ -30,6 +30,10 @@ body {
   margin: 20px auto;
   border: solid 1px darkgray;
   border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 5px;
 }
 
 .buttons {
@@ -71,8 +75,19 @@ button {
   border: solid 1px ;
 }
 
+.division:hover, .multiplication:hover, .minus:hover, .plus:hover, .equal:hover {
+  background-color: darkorange;
+  color: white;
+}
+
 .ac, .plus-minus, .modulo {
   color: white;
   background-color: dimgray;
+  border: none;
+}
+
+.ac:hover, .plus-minus:hover, .modulo:hover {
+  color: white;
+  background-color: grey;
   border: none;
 }
