@@ -12,6 +12,7 @@
 body {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
@@ -20,7 +21,7 @@ body {
 .container {
   background-color: aliceblue;
   width: 26em;
-  height: 30em;
+  height: 28em;
   border-radius: 5px;
   border: solid 1px darkgray;
   padding-top: 12px;
@@ -29,6 +30,9 @@ body {
 .screen {
   font-family: Digital-7;
   font-size: 2.5rem;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
   letter-spacing: 3px;
   width: 80%;
   height: 15%;
@@ -74,7 +78,7 @@ button {
   grid-column: 1 / span 2;
 }
 
-.decimal {
+.decimal-point {
   font-size: 1.4em;
 }
 
