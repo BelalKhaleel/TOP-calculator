@@ -2,12 +2,12 @@ let previousNumber = "";
 let nextNumber = "";
 let operator = "";
 let currentNumber = "";
+let errorMessage = document.querySelector(".error-message");
 
 const screen = document.querySelector(".screen");
 const buttons = document.querySelector(".buttons");
 const operands = buttons.querySelectorAll(".operand");
 const decimalPoint = buttons.querySelector(".decimal-point");
-const errorMessage = document.querySelector(".error-message");
 
 const calculator = (function () {
   const add = (a, b) => a + b;
@@ -80,17 +80,24 @@ function populateDisplay(e) {
   if (buttonClass.contains("equal")) {
     if(currentNumber) {
       nextNumber = Number(currentNumber);
-      if (operator === "÷" && nextNumber === 0) {
-        errorMessage.textContent = `Oops! Can't divide by zero dummy!
-        Looks like someone wasn't paying attention during Math class 😛`;
-        resetScreen();
-      } else {
-        currentNumber = operate(previousNumber, nextNumber, operator);
-        if (String(currentNumber).length > 13) {
-          screen.textContent = currentNumber;
-          screen.style.fontSize = '1.9rem';
+      if (nextNumber) {
+        if (operator === "÷" && nextNumber === 0) {
+          errorMessage.textContent = `Oops! Can't divide by zero dummy!
+          Looks like someone wasn't paying attention during Math class 😛`;
+          resetScreen();
         } else {
-          screen.textContent = currentNumber;
+          currentNumber = operate(previousNumber, nextNumber, operator);
+          if (currentNumber === undefined) {
+            errorMessage.textContent = 'Please pay attention to your logic.';
+            resetScreen();
+          } else if (String(currentNumber).length > 13) {
+            screen.textContent = currentNumber;
+            screen.style.fontSize = '1.9rem';
+            errorMessage.textContent = '';
+          } else {
+            screen.textContent = currentNumber;
+            errorMessage.textContent = '';
+          }
         }
       }
     }
