@@ -1,7 +1,3 @@
-const log = (...args) => {
-  return console.log(...args);
-};
-
 let previousNumber = "";
 let nextNumber = "";
 let operator = "";
@@ -60,6 +56,7 @@ function resetScreen() {
   nextNumber = "";
   currentNumber = "";
   screen.textContent = "";
+  screen.style.fontSize = '2.5rem';
 }
 
 function populateDisplay(e) {
@@ -67,7 +64,6 @@ function populateDisplay(e) {
   let buttonClass = e.target.classList;
 
   if (buttonClass.contains("operand") || buttonClass.contains("decimal-point")) {
-    // debugger
     currentNumber += e.target.value;
     disableButtons();
     screen.textContent = currentNumber;
@@ -91,13 +87,12 @@ function populateDisplay(e) {
       } else {
         currentNumber = operate(previousNumber, nextNumber, operator);
         if (String(currentNumber).length > 13) {
-          screen.textContent = String(Math.round(currentNumber));
+          screen.textContent = currentNumber;
           screen.style.fontSize = '1.9rem';
         } else {
           screen.textContent = currentNumber;
         }
       }
-      decimalPoint.disabled = false;
     }
   }
   if (buttonClass.contains("clear")) {
