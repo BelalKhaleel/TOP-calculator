@@ -11,13 +11,16 @@ const screen = document.querySelector(".screen");
 const buttons = document.querySelector(".buttons");
 const operands = buttons.querySelectorAll(".operand");
 const decimalPoint = buttons.querySelector(".decimal-point");
+const errorMessage = document.querySelector(".error-message");
 
 const calculator = (function () {
   const add = (a, b) => a + b;
   const sub = (a, b) => a - b;
   const mul = (a, b) => a * b;
-  const div = (a, b) => a / b;
   const mod = (a, b) => a % b;
+  const div = (a, b) => {
+    if (b) return a / b;
+  }
   return { add, sub, mul, div, mod };
 })();
 
@@ -52,12 +55,25 @@ function enableButtons() {
   decimalPoint.disabled = false;
 }
 
+function resetScreen() {
+  previousNumber = "";
+  nextNumber = "";
+  currentNumber = "";
+  screen.textContent = "";
+}
+
 function populateDisplay(e) {
+
   let buttonClass = e.target.classList;
+
   if (buttonClass.contains("operand") || buttonClass.contains("decimal-point")) {
+    // debugger
     currentNumber += e.target.value;
     disableButtons();
     screen.textContent = currentNumber;
+    if (currentNumber.includes('.')) {
+      decimalPoint.disabled = true;
+    }
   }
   if (buttonClass.contains("operator")) {
     previousNumber = Number(currentNumber);
@@ -66,25 +82,33 @@ function populateDisplay(e) {
     enableButtons();
   }
   if (buttonClass.contains("equal")) {
-    nextNumber = Number(currentNumber);
-    currentNumber = operate(previousNumber, nextNumber, operator);
-    if (currentNumber.length > 13) {
-      screen.textContent = String(Math.round(currentNumber));
-    } else {
-      screen.textContent = currentNumber;
+    if(currentNumber) {
+      nextNumber = Number(currentNumber);
+      if (operator === "÷" && nextNumber === 0) {
+        errorMessage.textContent = `Oops! Can't divide by zero dummy!
+        Looks like someone wasn't paying attention during Math class 😛`;
+        resetScreen();
+      } else {
+        currentNumber = operate(previousNumber, nextNumber, operator);
+        if (String(currentNumber).length > 13) {
+          screen.textContent = String(Math.round(currentNumber));
+          screen.style.fontSize = '1.9rem';
+        } else {
+          screen.textContent = currentNumber;
+        }
+      }
+      decimalPoint.disabled = false;
     }
   }
   if (buttonClass.contains("clear")) {
-    previousNumber = "";
-    nextNumber = "";
-    currentNumber = "";
-    screen.textContent = "";
+    resetScreen();
     enableButtons();
   }
   if (buttonClass.contains("backspace")) {
     currentNumber = currentNumber.split("").slice(0, -1).join("");
     screen.textContent = currentNumber;
   }
+
 }
 
 buttons.addEventListener("click", populateDisplay);

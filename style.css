@@ -18,6 +18,16 @@ body {
   margin: 0;
 }
 
+.instructions span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.instructions .error-message {
+  color: red;
+  font-weight: bold;
+}
+
 .container {
   background-color: aliceblue;
   width: 26em;
