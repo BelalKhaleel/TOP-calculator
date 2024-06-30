@@ -27,12 +27,12 @@ function operate(previousNumber, nextNumber, operator) {
       return calculator.add(previousNumber, nextNumber);
     case '-':
       return calculator.sub(previousNumber, nextNumber);
-    case 'x':
+    case '×':
       return calculator.mul(previousNumber, nextNumber);
     case '÷':
       return calculator.div(previousNumber, nextNumber);
     case '%':
-      return calculator.div(previousNumber, nextNumber);
+      return calculator.mod(previousNumber, nextNumber);
   }
 }
 
@@ -55,9 +55,8 @@ function populateDisplay(e) {
   }
   if (buttonClass.contains('equal')) {
     nextNumber = Number(currentNumber);
-    currentNumber = '';
-    
-    screen.textContent = operate(previousNumber, nextNumber, operator);
+    currentNumber = operate(previousNumber, nextNumber, operator);
+    screen.textContent = currentNumber;
   }
   if (buttonClass.contains('clear')) {
     previousNumber = '';
@@ -65,9 +64,7 @@ function populateDisplay(e) {
     screen.textContent = '';
   }
   // if (buttonClass.contains('backspace')) {
-  //   if (!screen.textContent) {
   //     log(screen.textContent);
   //     screen.textContent.split('').pop().join('');
-  //   }
   // }
 }
