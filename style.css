@@ -89,7 +89,7 @@ button {
   font-size: 1.3em;
 }
 
-.operator:hover {
+.operator:hover, .operator:focus {
   background-color: darkorange;
   color: white;
 }
