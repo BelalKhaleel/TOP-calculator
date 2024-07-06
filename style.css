@@ -32,10 +32,13 @@ body {
 .container {
   background-color: aliceblue;
   width: 26em;
-  height: 28em;
-  border-radius: 5px;
+  height: 27em;
   border: solid 1px darkgray;
-  padding-top: 12px;
+  border-radius: 5px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 
 .screen {
@@ -45,10 +48,8 @@ body {
   white-space: pre-wrap;
   word-break: break-word;
   letter-spacing: 3px;
-  width: 80%;
-  height: 15%;
+  height: 20%;
   background-color: white;
-  margin: 20px auto;
   border: solid 1px darkgray;
   border-radius: 5px;
   display: flex;
@@ -69,8 +70,6 @@ body {
 
 .buttons {
   height: 60%;
-  width: 80%;
-  margin: 20px auto;
   padding: 5px;
   background-color: white;
   display: grid;
@@ -102,6 +101,7 @@ button {
   background-color: orange;
   border: solid 1px;
   font-size: 1.3em;
+  border-radius: 3px;
 }
 
 .operator:hover, .operator:focus {
@@ -119,11 +119,11 @@ button {
 }
 
 .clear,
-.backspace,
-.modulo {
+.backspace {
   color: white;
   background-color: dimgray;
   border: none;
+  border-radius: 3px;
 }
 
 .clear:hover,
